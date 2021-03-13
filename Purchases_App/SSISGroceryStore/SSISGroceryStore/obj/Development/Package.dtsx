@@ -11,19 +11,19 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{38022F98-D11B-4865-A275-6424EC6DB997}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{99EE4123-4053-49A3-863E-7DA1CC2D68FD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{45CBB07A-4EF7-40FE-B892-7D7624C9084A}"
+      DTS:DTSID="{51106274-A577-456B-96A0-6AA78AF7164D}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\r91pa\Desktop\PersonalProjects\GroceryStoreApp\Stores.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\r91pa\Desktop\Grocery_Purchases\Purchases_App\Stores.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -1389,11 +1389,11 @@ where [refTable].[StoreId] = ?</property>
                           externalMetadataColumnId="Package\Sequence Container\Products Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
                           lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductName]" />
                         <inputColumn
-                          refId="Package\Sequence Container\Products Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Price]"
-                          cachedDataType="r8"
-                          cachedName="Price"
+                          refId="Package\Sequence Container\Products Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Price]"
+                          cachedDataType="cy"
+                          cachedName="Copy of Price"
                           externalMetadataColumnId="Package\Sequence Container\Products Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
-                          lineageId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[Price]" />
+                          lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Price]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1440,147 +1440,6 @@ where [refTable].[StoreId] = ?</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Sequence Container\Products Task\Product Id Lookup"
-                  componentClassID="Microsoft.Lookup"
-                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-                  name="Product Id Lookup"
-                  usesDispositions="true"
-                  version="6">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the SQL statement that generates the lookup table."
-                      expressionType="Notify"
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Products]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                      expressionType="Notify"
-                      name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Products]) [refTable]
-where [refTable].[Id] = ?</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the type of connection used to access the reference dataset."
-                      name="ConnectionType"
-                      typeConverter="LookupConnectionType">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the cache type of the lookup table."
-                      name="CacheType"
-                      typeConverter="CacheType">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                      name="NoMatchBehavior"
-                      typeConverter="LookupNoMatchBehavior">1</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                      name="NoMatchCachePercentage">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                      name="MaxMemoryUsage">25</property>
-                    <property
-                      dataType="System.Int64"
-                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                      name="MaxMemoryUsage64">25</property>
-                    <property
-                      dataType="System.String"
-                      description="Indicates whether to reference metadata in an XML format."
-                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductName" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Price" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ID]};</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                      name="TreatDuplicateKeysAsError">false</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Sequence Container\Products Task\Product Id Lookup.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
-                      description="Connection manager used to access lookup data."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Sequence Container\Products Task\Product Id Lookup.Inputs[Lookup Input]"
-                      name="Lookup Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Sequence Container\Products Task\Product Id Lookup.Inputs[Lookup Input].Columns[Copy of ID]"
-                          cachedDataType="i4"
-                          cachedName="Copy of ID"
-                          lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ID]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">Id</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Sequence Container\Products Task\Product Id Lookup.Outputs[Lookup Match Output]"
-                      errorOrTruncationOperation="Lookup"
-                      exclusionGroup="1"
-                      name="Lookup Match Output"
-                      synchronousInputId="Package\Sequence Container\Products Task\Product Id Lookup.Inputs[Lookup Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Sequence Container\Products Task\Product Id Lookup.Outputs[Lookup No Match Output]"
-                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                      exclusionGroup="1"
-                      name="Lookup No Match Output"
-                      synchronousInputId="Package\Sequence Container\Products Task\Product Id Lookup.Inputs[Lookup Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Sequence Container\Products Task\Product Id Lookup.Outputs[Lookup Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Lookup Error Output"
-                      synchronousInputId="Package\Sequence Container\Products Task\Product Id Lookup.Inputs[Lookup Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Sequence Container\Products Task\Product Id Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Products Task\Product Id Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Products Task\Product Id Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Products Task\Product Id Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
                   refId="Package\Sequence Container\Products Task\Products Data Conversion"
                   componentClassID="Microsoft.DataConvert"
                   contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -1604,10 +1463,10 @@ where [refTable].[Id] = ?</property>
                           cachedName="ProductName"
                           lineageId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[ProductName]" />
                         <inputColumn
-                          refId="Package\Sequence Container\Products Task\Products Data Conversion.Inputs[Data Conversion Input].Columns[LocationId]"
+                          refId="Package\Sequence Container\Products Task\Products Data Conversion.Inputs[Data Conversion Input].Columns[Price]"
                           cachedDataType="r8"
-                          cachedName="LocationId"
-                          lineageId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[LocationId]" />
+                          cachedName="Price"
+                          lineageId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[Price]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -1662,19 +1521,19 @@ where [refTable].[Id] = ?</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LocationId]"
-                          dataType="i4"
+                          refId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Price]"
+                          dataType="cy"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LocationId]"
-                          name="Copy of LocationId"
+                          lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Price]"
+                          name="Copy of Price"
                           truncationRowDisposition="FailComponent">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Specifies the input column used as the source of data for the conversion."
-                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[LocationId]}</property>
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[Price]}</property>
                             <property
                               dataType="System.Boolean"
                               description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1701,6 +1560,147 @@ where [refTable].[Id] = ?</property>
                           refId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Products Task\Products ID Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Products ID Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Products]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Products]) [refTable]
+where [refTable].[Id] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductName" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Price" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ID]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Products Task\Products ID Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Products Task\Products ID Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Products Task\Products ID Lookup.Inputs[Lookup Input].Columns[Copy of ID]"
+                          cachedDataType="i4"
+                          cachedName="Copy of ID"
+                          lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Id</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Products Task\Products ID Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Sequence Container\Products Task\Products ID Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Products Task\Products ID Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Sequence Container\Products Task\Products ID Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Products Task\Products ID Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Sequence Container\Products Task\Products ID Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Products Task\Products ID Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Products Task\Products ID Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Products Task\Products ID Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Products Task\Products ID Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1781,15 +1781,6 @@ where [refTable].[Id] = ?</property>
                           name="ProductName"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[LocationId]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].ExternalColumns[LocationId]"
-                          lineageId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[LocationId]"
-                          name="LocationId"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
                           refId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[Price]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversion"
@@ -1810,10 +1801,6 @@ where [refTable].[Id] = ?</property>
                           dataType="wstr"
                           length="255"
                           name="ProductName" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].ExternalColumns[LocationId]"
-                          dataType="r8"
-                          name="LocationId" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].ExternalColumns[Price]"
                           dataType="r8"
@@ -1836,11 +1823,6 @@ where [refTable].[Id] = ?</property>
                           length="255"
                           lineageId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Error Output].Columns[ProductName]"
                           name="ProductName" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Error Output].Columns[LocationId]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Error Output].Columns[LocationId]"
-                          name="LocationId" />
                         <outputColumn
                           refId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Error Output].Columns[Price]"
                           dataType="r8"
@@ -1867,7 +1849,7 @@ where [refTable].[Id] = ?</property>
               <paths>
                 <path
                   refId="Package\Sequence Container\Products Task.Paths[Data Conversion Output]"
-                  endId="Package\Sequence Container\Products Task\Product Id Lookup.Inputs[Lookup Input]"
+                  endId="Package\Sequence Container\Products Task\Products ID Lookup.Inputs[Lookup Input]"
                   name="Data Conversion Output"
                   startId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output]" />
                 <path
@@ -1879,7 +1861,7 @@ where [refTable].[Id] = ?</property>
                   refId="Package\Sequence Container\Products Task.Paths[Lookup No Match Output]"
                   endId="Package\Sequence Container\Products Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   name="Lookup No Match Output"
-                  startId="Package\Sequence Container\Products Task\Product Id Lookup.Outputs[Lookup No Match Output]" />
+                  startId="Package\Sequence Container\Products Task\Products ID Lookup.Outputs[Lookup No Match Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -2848,71 +2830,35 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="200,42"
-          Id="Package\Sequence Container\Products Task\Products Data Conversion"
-          TopLeft="72,150" />
-        <NodeLayout
-          Size="165,42"
-          Id="Package\Sequence Container\Products Task\Product Id Lookup"
-          TopLeft="85,254" />
-        <NodeLayout
           Size="155,42"
           Id="Package\Sequence Container\Products Task\Products Source"
           TopLeft="91,22" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Sequence Container\Products Task\Products Data Conversion"
+          TopLeft="76,116" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Sequence Container\Products Task\Products ID Lookup"
+          TopLeft="59,249" />
         <NodeLayout
           Size="171,42"
           Id="Package\Sequence Container\Products Task\OLE DB Destination"
           TopLeft="74,366" />
         <EdgeLayout
-          Id="Package\Sequence Container\Products Task.Paths[Lookup No Match Output]"
-          TopLeft="167.5,296">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-8,70"
-              Start="0,0"
-              End="-8,62.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31"
-                    Point2="0,35"
-                    Point3="-4,35" />
-                  <mssgle:LineSegment
-                    End="-4,35" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4,35"
-                    Point2="-8,35"
-                    Point3="-8,39" />
-                  <mssgle:LineSegment
-                    End="-8,62.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-59.80638671875,40,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Sequence Container\Products Task.Paths[Excel Source Output]"
-          TopLeft="170.25,64">
+          TopLeft="172.25,64">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,86"
+              EndConnector="0,52"
               Start="0,0"
-              End="0,78.5">
+              End="0,44.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,78.5" />
+                    End="0,44.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2923,18 +2869,30 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Products Task.Paths[Data Conversion Output]"
-          TopLeft="169.75,192">
+          TopLeft="176,158">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,62"
+              EndConnector="-31,91"
               Start="0,0"
-              End="0,54.5">
+              End="-31,83.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.5" />
+                    End="0,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.5"
+                    Point2="0,45.5"
+                    Point3="-4,45.5" />
+                  <mssgle:LineSegment
+                    End="-27,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27,45.5"
+                    Point2="-31,45.5"
+                    Point3="-31,49.5" />
+                  <mssgle:LineSegment
+                    End="-31,83.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2943,32 +2901,45 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Products Task.Paths[Lookup No Match Output]"
+          TopLeft="145,291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.5,75"
+              Start="0,0"
+              End="14.5,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.5"
+                    Point2="0,37.5"
+                    Point3="4,37.5" />
+                  <mssgle:LineSegment
+                    End="10.5,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5,37.5"
+                    Point2="14.5,37.5"
+                    Point3="14.5,41.5" />
+                  <mssgle:LineSegment
+                    End="14.5,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.55638671875,42.5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Products Task\Product Id Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Products]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Products Task\Products Source">
     <Properties>
@@ -2979,6 +2950,29 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Products Task\Products ID Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Products]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3000,6 +2994,14 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Store Inventory Task\Lookup Ids"
+          TopLeft="242,275" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Store Inventory Task\Inventory Destination"
+          TopLeft="201,378" />
         <NodeLayout
           Size="160,42"
           Id="Package\Store Inventory Task\Inventory Source"
@@ -3042,10 +3044,6 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="131,42"
-          Id="Package\Store Inventory Task\Lookup Ids"
-          TopLeft="242,275" />
         <EdgeLayout
           Id="Package\Store Inventory Task.Paths[Data Conversion Output]"
           TopLeft="286,206">
@@ -3080,10 +3078,6 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Store Inventory Task\Inventory Destination"
-          TopLeft="201,378" />
         <EdgeLayout
           Id="Package\Store Inventory Task.Paths[Lookup No Match Output]"
           TopLeft="307.5,317">
@@ -3124,7 +3118,30 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Store Inventory Task\Inventory Source">
+    design-time-name="Package\Store Inventory Task\Lookup Ids">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[StoreInventory]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Store Inventory Task\Inventory Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3137,30 +3154,7 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Store Inventory Task\Lookup Ids">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[StoreInventory]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Store Inventory Task\Inventory Destination">
+    design-time-name="Package\Store Inventory Task\Inventory Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

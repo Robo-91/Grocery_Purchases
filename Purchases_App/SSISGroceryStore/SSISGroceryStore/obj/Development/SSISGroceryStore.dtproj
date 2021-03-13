@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LAPTOP-9TKNNVCM</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHvRa9E6vhk2WXmsdnozn5gAAAAACAAAAAAAQZgAAAAEAACAAAADRQYUAZ8Vz4fWhWrxkwWaFin5h+5O/hDVQdycKR1Qd6AAAAAAOgAAAAAIAACAAAADHtRFbOlWQRCT8Tu+SgVsxvWxAuGtcAdC4OTI7yDUKlZAAAABTN4E2LOVJGptATbK34LmSjkwxE3QtLifEbFw7bh0BDS/FUNvStfas5Kc5B7sk0WTeotCRMz7/fmfD5F3hg7qu9m8npvQyG0uDNJPgJ36ImVwkohm4maLIP2HsDSa0zq83zA0WkyWmxCVvh6hpSJx060lcKYz1fRxztCf2+LknthaEdHIk86f6FBB2OF/hnnxAAAAAXkPG82UImrbzH7IeXykTVF+HIXZTgUqjWQmUzfJBFN8llVvWmbmF2XuSjnNK+AJd4yoP/rAFTovTeGdqpeyvPQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHvRa9E6vhk2WXmsdnozn5gAAAAACAAAAAAAQZgAAAAEAACAAAAD21HUp4t8EywBUeFyaH73QWIOV1UpBxkw0ZEOX4AyL8gAAAAAOgAAAAAIAACAAAADcb6wYnOTAKYwcqjrP+hY8aE8gsPSmksSN8f3N/eVAvZAAAACNkp4Bil99ZiDRgHYKgn1FhktUACIzFeZvq2RzckDSdDpluIfVh+uZorQRikhIGKISNnvycWH5YYMsFU2n997GVunqDo4Tsycxu0/KLqzxYeWz8PxE/nHPs/ub8S+2n5YyUkVpKPMJweTCMqUdSGiHgoQH0odQAeWdj3fYp1gadTe18XT5mh9O7OjvAQG+JxdAAAAAm1Y9pCI6f47QVUsFO2kkqIthSeReV9Y9UV11DMGJY4v6Ru/TnmQOl0oGuGUu813RkHo2d543TDT6aRmbeEGxmQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,10 +42,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">22</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">26</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{38022F98-D11B-4865-A275-6424EC6DB997}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{99EE4123-4053-49A3-863E-7DA1CC2D68FD}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -78,7 +78,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\r91pa\Desktop\PersonalProjects\GroceryStoreApp\Stores.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\r91pa\Desktop\Grocery_Purchases\Purchases_App\Stores.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -93,7 +93,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\r91pa\Desktop\PersonalProjects\GroceryStoreApp\Stores.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\r91pa\Desktop\Grocery_Purchases\Purchases_App\Stores.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -166,7 +166,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\r91pa\Desktop\PersonalProjects\GroceryStoreApp\Stores.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\r91pa\Desktop\Grocery_Purchases\Purchases_App\Stores.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
