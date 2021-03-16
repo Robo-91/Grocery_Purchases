@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1340
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSIS_DB_to_DW", "SSIS_DB_to_DW\SSIS_DB_to_DW.dtproj", "{282DCFC0-1209-4504-9CF0-72D9179E466B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{282DCFC0-1209-4504-9CF0-72D9179E466B}.Development|Default.ActiveCfg = Development
+		{282DCFC0-1209-4504-9CF0-72D9179E466B}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5973269-02F4-4338-A131-1C39252F6C71}
+	EndGlobalSection
+EndGlobal
