@@ -11,11 +11,81 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{719E6471-8685-448E-9B31-70B92CD19468}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{0B662C1A-1275-452C-BE34-655C3089C64A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Customer Error Location]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{CDD5B680-E577-4034-BEE5-FF28B71DFFC8}"
+      DTS:ObjectName="Customer Error Location">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\r91pa\Desktop\Grocery_Purchases\Purchases_App\CustomerError.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SSN"
+              DTS:DTSID="{21F5220A-B720-4860-9CE9-800C8F8BB320}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{39592157-7767-49A3-8B50-F705D750A37C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{BF5570D7-DF77-4927-B437-3116AE3B2A1A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address"
+              DTS:DTSID="{5C8EC111-993F-457B-BADA-1E2B96BF27EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{D4826837-EB99-499D-91CA-C4A266EA2FEA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{FEE05747-8E36-436B-888B-484D7EBCDCA0}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
@@ -34,6 +104,127 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=LAPTOP-9TKNNVCM\LEARNINGSERVER;Initial Catalog=Retail_App_DB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Location Error Connection]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C89B7119-9220-4F64-B2E5-EF1C5D860D25}"
+      DTS:ObjectName="Location Error Connection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\r91pa\Desktop\Grocery_Purchases\Purchases_App\LocationsError.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreId"
+              DTS:DTSID="{4CA069E2-FE40-48FC-A047-D8CA4C2EF6C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="State"
+              DTS:DTSID="{0796F5F9-9870-4B9A-8FEC-DE13332819E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreName"
+              DTS:DTSID="{4290E38A-7F0F-49AC-823F-593097731B90}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{AEFAF27B-E69B-4358-9708-88A178B7C03B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{1902BE8F-EE0C-4D86-99BA-C052643D3D9F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Product Error Connection]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{0A765E7F-FD65-4F78-B97E-4396F630C9A2}"
+      DTS:ObjectName="Product Error Connection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\r91pa\Desktop\Grocery_Purchases\Purchases_App\ProductError.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{7AC76B66-DE1D-443A-B7B5-FC7B6D808BA7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductName"
+              DTS:DTSID="{FD663080-B9E9-42C3-B4ED-B8D184F70E52}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Price"
+              DTS:DTSID="{F5890281-2030-49CF-9A96-A0A5173FF741}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{72CDAFAD-FB41-4871-B42D-3B51A23A0A0B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{BD6D3150-9C51-4856-AA4C-087F2B87A79C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -113,10 +304,10 @@
                           refId="Package\Sequence Container\Customers Task\Customer Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SSN]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           lineageId="Package\Sequence Container\Customers Task\Customer Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SSN]"
                           name="Copy of SSN"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="RedirectRow">
                           <properties>
                             <property
                               containsID="true"
@@ -134,11 +325,11 @@
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           length="255"
                           lineageId="Package\Sequence Container\Customers Task\Customer Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]"
                           name="Copy of FirstName"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="RedirectRow">
                           <properties>
                             <property
                               containsID="true"
@@ -156,11 +347,11 @@
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           length="255"
                           lineageId="Package\Sequence Container\Customers Task\Customer Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]"
                           name="Copy of LastName"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="RedirectRow">
                           <properties>
                             <property
                               containsID="true"
@@ -178,11 +369,11 @@
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           length="255"
                           lineageId="Package\Sequence Container\Customers Task\Customer Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Address]"
                           name="Copy of Address"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="RedirectRow">
                           <properties>
                             <property
                               containsID="true"
@@ -525,6 +716,115 @@ where [refTable].[SSN] = ?</property>
                   </outputs>
                 </component>
                 <component
+                  refId="Package\Sequence Container\Customers Task\Error Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Error Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Customers Task\Error Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Customer Error Location]"
+                      connectionManagerRefId="Package.ConnectionManagers[Customer Error Location]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].Columns[SSN]"
+                          cachedDataType="r8"
+                          cachedName="SSN"
+                          externalMetadataColumnId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[SSN]"
+                          lineageId="Package\Sequence Container\Customers Task\Customer Excel.Outputs[Excel Source Output].Columns[SSN]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FirstName"
+                          externalMetadataColumnId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Sequence Container\Customers Task\Customer Excel.Outputs[Excel Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="LastName"
+                          externalMetadataColumnId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Sequence Container\Customers Task\Customer Excel.Outputs[Excel Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].Columns[Address]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Address"
+                          externalMetadataColumnId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[Address]"
+                          lineageId="Package\Sequence Container\Customers Task\Customer Excel.Outputs[Excel Source Output].Columns[Address]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          lineageId="Package\Sequence Container\Customers Task\Customer Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\Customers Task\Customer Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[SSN]"
+                          dataType="r8"
+                          name="SSN" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="255"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="255"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[Address]"
+                          dataType="wstr"
+                          length="255"
+                          name="Address" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="i4"
+                          name="ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
                   refId="Package\Sequence Container\Customers Task\OLE DB Destination"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -682,6 +982,11 @@ where [refTable].[SSN] = ?</property>
               </components>
               <paths>
                 <path
+                  refId="Package\Sequence Container\Customers Task.Paths[Data Conversion Error Output]"
+                  endId="Package\Sequence Container\Customers Task\Error Destination.Inputs[Flat File Destination Input]"
+                  name="Data Conversion Error Output"
+                  startId="Package\Sequence Container\Customers Task\Customer Data Conversion.Outputs[Data Conversion Error Output]" />
+                <path
                   refId="Package\Sequence Container\Customers Task.Paths[Data Conversion Output]"
                   endId="Package\Sequence Container\Customers Task\Customer SSN Lookup.Inputs[Lookup Input]"
                   name="Data Conversion Output"
@@ -714,6 +1019,103 @@ where [refTable].[SSN] = ?</property>
             <pipeline
               version="1">
               <components>
+                <component
+                  refId="Package\Sequence Container\Locations Task\Error Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Error Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Locations Task\Error Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Location Error Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[Location Error Connection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].Columns[StoreId]"
+                          cachedDataType="r8"
+                          cachedName="StoreId"
+                          externalMetadataColumnId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreId]"
+                          lineageId="Package\Sequence Container\Locations Task\Stores Excel.Outputs[Excel Source Output].Columns[StoreId]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].Columns[State]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="State"
+                          externalMetadataColumnId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[State]"
+                          lineageId="Package\Sequence Container\Locations Task\Stores Excel.Outputs[Excel Source Output].Columns[State]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].Columns[StoreName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="StoreName"
+                          externalMetadataColumnId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreName]"
+                          lineageId="Package\Sequence Container\Locations Task\Stores Excel.Outputs[Excel Source Output].Columns[StoreName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          lineageId="Package\Sequence Container\Locations Task\Excel Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\Locations Task\Excel Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreId]"
+                          dataType="r8"
+                          name="StoreId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[State]"
+                          dataType="wstr"
+                          length="255"
+                          name="State" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreName]"
+                          dataType="wstr"
+                          length="255"
+                          name="StoreName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="i4"
+                          name="ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
                 <component
                   refId="Package\Sequence Container\Locations Task\Excel Conversion"
                   componentClassID="Microsoft.DataConvert"
@@ -759,11 +1161,11 @@ where [refTable].[SSN] = ?</property>
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           length="255"
                           lineageId="Package\Sequence Container\Locations Task\Excel Conversion.Outputs[Data Conversion Output].Columns[Copy of State]"
                           name="Copy of State"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="RedirectRow">
                           <properties>
                             <property
                               containsID="true"
@@ -781,11 +1183,11 @@ where [refTable].[SSN] = ?</property>
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           length="255"
                           lineageId="Package\Sequence Container\Locations Task\Excel Conversion.Outputs[Data Conversion Output].Columns[Copy of StoreName]"
                           name="Copy of StoreName"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="RedirectRow">
                           <properties>
                             <property
                               containsID="true"
@@ -802,10 +1204,10 @@ where [refTable].[SSN] = ?</property>
                           refId="Package\Sequence Container\Locations Task\Excel Conversion.Outputs[Data Conversion Output].Columns[Copy of StoreId]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           lineageId="Package\Sequence Container\Locations Task\Excel Conversion.Outputs[Data Conversion Output].Columns[Copy of StoreId]"
                           name="Copy of StoreId"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="RedirectRow">
                           <properties>
                             <property
                               containsID="true"
@@ -1270,6 +1672,11 @@ where [refTable].[StoreId] = ?</property>
               </components>
               <paths>
                 <path
+                  refId="Package\Sequence Container\Locations Task.Paths[Data Conversion Error Output]"
+                  endId="Package\Sequence Container\Locations Task\Error Destination.Inputs[Flat File Destination Input]"
+                  name="Data Conversion Error Output"
+                  startId="Package\Sequence Container\Locations Task\Excel Conversion.Outputs[Data Conversion Error Output]" />
+                <path
                   refId="Package\Sequence Container\Locations Task.Paths[Data Conversion Output]"
                   endId="Package\Sequence Container\Locations Task\ID Lookup.Inputs[Lookup Input]"
                   name="Data Conversion Output"
@@ -1302,6 +1709,101 @@ where [refTable].[StoreId] = ?</property>
             <pipeline
               version="1">
               <components>
+                <component
+                  refId="Package\Sequence Container\Products Task\Error Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Error Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Products Task\Error Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Product Error Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[Product Error Connection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].Columns[ID]"
+                          cachedDataType="r8"
+                          cachedName="ID"
+                          externalMetadataColumnId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].Columns[ProductName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="ProductName"
+                          externalMetadataColumnId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ProductName]"
+                          lineageId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[ProductName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].Columns[Price]"
+                          cachedDataType="r8"
+                          cachedName="Price"
+                          externalMetadataColumnId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[Price]"
+                          lineageId="Package\Sequence Container\Products Task\Products Source.Outputs[Excel Source Output].Columns[Price]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ID]"
+                          dataType="r8"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ProductName]"
+                          dataType="wstr"
+                          length="255"
+                          name="ProductName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[Price]"
+                          dataType="r8"
+                          name="Price" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="i4"
+                          name="ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
                 <component
                   refId="Package\Sequence Container\Products Task\OLE DB Destination"
                   componentClassID="Microsoft.OLEDBDestination"
@@ -1482,10 +1984,10 @@ where [refTable].[StoreId] = ?</property>
                           refId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ID]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ID]"
                           name="Copy of ID"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="RedirectRow">
                           <properties>
                             <property
                               containsID="true"
@@ -1503,11 +2005,11 @@ where [refTable].[StoreId] = ?</property>
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           length="255"
                           lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductName]"
                           name="Copy of ProductName"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="RedirectRow">
                           <properties>
                             <property
                               containsID="true"
@@ -1524,10 +2026,10 @@ where [refTable].[StoreId] = ?</property>
                           refId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Price]"
                           dataType="cy"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           lineageId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Price]"
                           name="Copy of Price"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="RedirectRow">
                           <properties>
                             <property
                               containsID="true"
@@ -1847,6 +2349,11 @@ where [refTable].[Id] = ?</property>
                 </component>
               </components>
               <paths>
+                <path
+                  refId="Package\Sequence Container\Products Task.Paths[Data Conversion Error Output]"
+                  endId="Package\Sequence Container\Products Task\Error Destination.Inputs[Flat File Destination Input]"
+                  name="Data Conversion Error Output"
+                  startId="Package\Sequence Container\Products Task\Products Data Conversion.Outputs[Data Conversion Error Output]" />
                 <path
                   refId="Package\Sequence Container\Products Task.Paths[Data Conversion Output]"
                   endId="Package\Sequence Container\Products Task\Products ID Lookup.Inputs[Lookup Input]"
@@ -2433,12 +2940,12 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
         <NodeLayout
           Size="145,42"
           Id="Package\Sequence Container\Products Task"
-          TopLeft="69,93" />
+          TopLeft="143,103" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="410,190"
-          Size="410,233"
+          PanelSize="410,200"
+          Size="410,243"
           Id="Package\Sequence Container"
           TopLeft="74,61" />
         <NodeLayout
@@ -2447,18 +2954,18 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
           TopLeft="185,343" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="276.5,294">
+          TopLeft="276.5,304">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49"
+              EndConnector="0,39"
               Start="0,0"
-              End="0,41.5">
+              End="0,31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.5" />
+                    End="0,31.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2474,7 +2981,7 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
     design-time-name="Package\Sequence Container\Customers Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\Sequence Container\Customers Task\OLE DB Destination"
@@ -2486,45 +2993,43 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
         <NodeLayout
           Size="204,42"
           Id="Package\Sequence Container\Customers Task\Customer Data Conversion"
-          TopLeft="67,140" />
+          TopLeft="67,134" />
         <NodeLayout
           Size="184,42"
           Id="Package\Sequence Container\Customers Task\Customer SSN Lookup"
           TopLeft="111,255" />
         <EdgeLayout
           Id="Package\Sequence Container\Customers Task.Paths[Data Conversion Output]"
-          TopLeft="169,182">
+          TopLeft="169,176">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="34,73"
+              EndConnector="34,79"
               Start="0,0"
-              End="34,65.5">
+              End="34,71.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,35.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,32.5"
-                    Point2="0,36.5"
-                    Point3="4,36.5" />
+                    Point1="0,35.5"
+                    Point2="0,39.5"
+                    Point3="4,39.5" />
                   <mssgle:LineSegment
-                    End="30,36.5" />
+                    End="30,39.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="30,36.5"
-                    Point2="34,36.5"
-                    Point3="34,40.5" />
+                    Point1="30,39.5"
+                    Point2="34,39.5"
+                    Point3="34,43.5" />
                   <mssgle:LineSegment
-                    End="34,65.5" />
+                    End="34,71.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2569,21 +3074,59 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,73"
+              EndConnector="0,67"
               Start="0,0"
-              End="0,65.5">
+              End="0,59.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65.5" />
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container\Customers Task\Error Destination"
+          TopLeft="344,180" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Customers Task.Paths[Data Conversion Error Output]"
+          TopLeft="271,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73,46"
+              Start="0,0"
+              End="65.5,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="32.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.5,0"
+                    Point2="36.5,0"
+                    Point3="36.5,4" />
+                  <mssgle:LineSegment
+                    End="36.5,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.5,42"
+                    Point2="36.5,46"
+                    Point3="40.5,46" />
+                  <mssgle:LineSegment
+                    End="65.5,46" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-29.58638671875,-17.43359375,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2643,7 +3186,7 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
     design-time-name="Package\Sequence Container\Locations Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="128,42"
           Id="Package\Sequence Container\Locations Task\ID Lookup"
@@ -2655,7 +3198,7 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
         <NodeLayout
           Size="158,42"
           Id="Package\Sequence Container\Locations Task\Excel Conversion"
-          TopLeft="97,181" />
+          TopLeft="106,151" />
         <NodeLayout
           Size="136,42"
           Id="Package\Sequence Container\Locations Task\Stores Excel"
@@ -2702,98 +3245,99 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9,108"
+              EndConnector="0,78"
               Start="0,0"
-              End="-9,100.5">
+              End="0,70.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,50"
-                    Point2="0,54"
-                    Point3="-4,54" />
-                  <mssgle:LineSegment
-                    End="-5,54" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5,54"
-                    Point2="-9,54"
-                    Point3="-9,58" />
-                  <mssgle:LineSegment
-                    End="-9,100.5" />
+                    End="0,70.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Locations Task.Paths[Data Conversion Output]"
-          TopLeft="176,223">
+          TopLeft="185,193">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="19,46"
+              EndConnector="10,76"
               Start="0,0"
-              End="19,38.5">
+              End="10,68.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19" />
+                    End="0,34" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19"
-                    Point2="0,23"
-                    Point3="4,23" />
+                    Point1="0,34"
+                    Point2="0,38"
+                    Point3="4,38" />
                   <mssgle:LineSegment
-                    End="15,23" />
+                    End="6,38" />
                   <mssgle:CubicBezierSegment
-                    Point1="15,23"
-                    Point2="19,23"
-                    Point3="19,27" />
+                    Point1="6,38"
+                    Point2="10,38"
+                    Point3="10,42" />
                   <mssgle:LineSegment
-                    End="19,38.5" />
+                    End="10,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container\Locations Task\Error Destination"
+          TopLeft="350,197" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Locations Task.Paths[Data Conversion Error Output]"
+          TopLeft="264,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86,46"
+              Start="0,0"
+              End="78.5,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39,0"
+                    Point2="43,0"
+                    Point3="43,4" />
+                  <mssgle:LineSegment
+                    End="43,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43,42"
+                    Point2="43,46"
+                    Point3="47,46" />
+                  <mssgle:LineSegment
+                    End="78.5,46" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-23.08638671875,-17.43359375,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Locations Task\ID Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[tbl_Locations]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Locations Task\tbl_Locations Destination">
     <Properties>
@@ -2820,27 +3364,86 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Locations Task\ID Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[tbl_Locations]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Sequence Container\Products Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Sequence Container\Products Task\Products Source"
-          TopLeft="91,22" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="200,42"
           Id="Package\Sequence Container\Products Task\Products Data Conversion"
           TopLeft="76,116" />
         <NodeLayout
-          Size="172,42"
-          Id="Package\Sequence Container\Products Task\Products ID Lookup"
-          TopLeft="59,249" />
+          Size="155,42"
+          Id="Package\Sequence Container\Products Task\Products Source"
+          TopLeft="91,22" />
         <NodeLayout
           Size="171,42"
           Id="Package\Sequence Container\Products Task\OLE DB Destination"
           TopLeft="74,366" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Sequence Container\Products Task\Products ID Lookup"
+          TopLeft="59,249" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Products Task.Paths[Lookup No Match Output]"
+          TopLeft="145,291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.5,75"
+              Start="0,0"
+              End="14.5,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.5"
+                    Point2="0,37.5"
+                    Point3="4,37.5" />
+                  <mssgle:LineSegment
+                    End="10.5,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5,37.5"
+                    Point2="14.5,37.5"
+                    Point3="14.5,41.5" />
+                  <mssgle:LineSegment
+                    End="14.5,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.55638671875,42.5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Products Task.Paths[Excel Source Output]"
           TopLeft="172.25,64">
@@ -2897,39 +3500,43 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container\Products Task\Error Destination"
+          TopLeft="329,179" />
         <EdgeLayout
-          Id="Package\Sequence Container\Products Task.Paths[Lookup No Match Output]"
-          TopLeft="145,291">
+          Id="Package\Sequence Container\Products Task.Paths[Data Conversion Error Output]"
+          TopLeft="276,137">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.5,75"
+              EndConnector="53,63"
               Start="0,0"
-              End="14.5,67.5">
+              End="45.5,63">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
+                    End="22.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.5"
-                    Point2="0,37.5"
-                    Point3="4,37.5" />
+                    Point1="22.5,0"
+                    Point2="26.5,0"
+                    Point3="26.5,4" />
                   <mssgle:LineSegment
-                    End="10.5,37.5" />
+                    End="26.5,59" />
                   <mssgle:CubicBezierSegment
-                    Point1="10.5,37.5"
-                    Point2="14.5,37.5"
-                    Point3="14.5,41.5" />
+                    Point1="26.5,59"
+                    Point2="26.5,63"
+                    Point3="30.5,63" />
                   <mssgle:LineSegment
-                    End="14.5,67.5" />
+                    End="45.5,63" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.55638671875,42.5,111.6127734375,11.609375"
+              BoundingBox="-39.58638671875,-17.43359375,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2950,29 +3557,6 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Products Task\Products ID Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Products]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Products Task\OLE DB Destination">
     <Properties>
       <Property>
@@ -2982,6 +3566,29 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Products Task\Products ID Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Products]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
