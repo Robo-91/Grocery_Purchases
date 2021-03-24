@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{83059092-A601-41E4-871C-EE2752214691}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{8E156B0D-27BA-4565-BC04-DBA16E452B64}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -162,6 +162,81 @@
               DTS:TextQualified="True"
               DTS:ObjectName="ErrorColumn"
               DTS:DTSID="{1902BE8F-EE0C-4D86-99BA-C052643D3D9F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Null Dates Reroute]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{ECF894DF-FB8C-408A-AA47-519B5755B261}"
+      DTS:ObjectName="Null Dates Reroute">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\r91pa\Desktop\Grocery_Purchases\Purchases_App\DateNullsErrors.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateId"
+              DTS:DTSID="{C1D26BBE-D67B-4708-A646-B4A2D8891E16}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{DE37D7C1-6E13-491D-B11B-93EB2A23D641}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Year"
+              DTS:DTSID="{4900AFF9-92DF-4E55-AE71-868B8C98FA18}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Quarter"
+              DTS:DTSID="{6F385BA8-1EA8-4E81-A767-F67051CE4C97}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month"
+              DTS:DTSID="{C92A34AD-7846-44A9-BEA3-68923A395B24}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Week"
+              DTS:DTSID="{B774ED5B-A9E1-4114-A567-0BC689DDD8E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day"
+              DTS:DTSID="{69430E40-52C3-4400-8295-C800CF3E6972}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1090,6 +1165,7 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
       DTS:refId="Package\Purchased Items Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{B280F1AF-ABA4-4702-A3DE-D64A751BC4BB}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -2330,6 +2406,125 @@ where [refTable].[SSN] = ?</property>
               version="1">
               <components>
                 <component
+                  refId="Package\Records Without Key Constraints\Dates Task\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input].Columns[DateId]"
+                          cachedDataType="i4"
+                          cachedName="DateId"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[DateId]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input].Columns[Date]"
+                          cachedDataType="date"
+                          cachedName="Date"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Date]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input].Columns[Year]"
+                          cachedDataType="i4"
+                          cachedName="Year"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Year]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input].Columns[Quarter]"
+                          cachedDataType="i4"
+                          cachedName="Quarter"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Quarter]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input].Columns[Month]"
+                          cachedDataType="i4"
+                          cachedName="Month"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Month]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input].Columns[Week]"
+                          cachedDataType="i4"
+                          cachedName="Week"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Week]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input].Columns[Day]"
+                          cachedDataType="i4"
+                          cachedName="Day"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Day]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Outputs[Nulls]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Nulls"
+                      synchronousInputId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[ISNULL](#{Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[DateId]}) || [ISNULL](#{Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Date]}) || [ISNULL](#{Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Year]}) || [ISNULL](#{Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Quarter]}) || [ISNULL](#{Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Month]}) || [ISNULL](#{Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Week]}) || [ISNULL](#{Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Day]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(DateId) || ISNULL(Date) || ISNULL(Year) || ISNULL(Quarter) || ISNULL(Month) || ISNULL(Week) || ISNULL(Day)</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Records Without Key Constraints\Dates Task\Dates Destination"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -2709,6 +2904,119 @@ where [refTable].[SSN] = ?</property>
                   </outputs>
                 </component>
                 <component
+                  refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Null Dates Reroute]"
+                      connectionManagerRefId="Package.ConnectionManagers[Null Dates Reroute]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[DateId]"
+                          cachedDataType="i4"
+                          cachedName="DateId"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DateId]"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[DateId]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Date]"
+                          cachedDataType="date"
+                          cachedName="Date"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Date]"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Date]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Year]"
+                          cachedDataType="i4"
+                          cachedName="Year"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Year]"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Year]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Quarter]"
+                          cachedDataType="i4"
+                          cachedName="Quarter"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Quarter]"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Quarter]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Month]"
+                          cachedDataType="i4"
+                          cachedName="Month"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Month]"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Month]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Week]"
+                          cachedDataType="i4"
+                          cachedName="Week"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Week]"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Week]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Day]"
+                          cachedDataType="i4"
+                          cachedName="Day"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Day]"
+                          lineageId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output].Columns[Day]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DateId]"
+                          dataType="i4"
+                          name="DateId" />
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Date]"
+                          dataType="date"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Year]"
+                          dataType="i4"
+                          name="Year" />
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Quarter]"
+                          dataType="i4"
+                          name="Quarter" />
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Month]"
+                          dataType="i4"
+                          name="Month" />
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Week]"
+                          dataType="i4"
+                          name="Week" />
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Day]"
+                          dataType="i4"
+                          name="Day" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
                   refId="Package\Records Without Key Constraints\Dates Task\Lookup Id"
                   componentClassID="Microsoft.Lookup"
                   contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -2852,8 +3160,13 @@ where [refTable].[date_id] = ?</property>
               </components>
               <paths>
                 <path
-                  refId="Package\Records Without Key Constraints\Dates Task.Paths[Excel Source Output]"
+                  refId="Package\Records Without Key Constraints\Dates Task.Paths[Conditional Split Default Output]"
                   endId="Package\Records Without Key Constraints\Dates Task\Lookup Id.Inputs[Lookup Input]"
+                  name="Conditional Split Default Output"
+                  startId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Outputs[Conditional Split Default Output]" />
+                <path
+                  refId="Package\Records Without Key Constraints\Dates Task.Paths[Excel Source Output]"
+                  endId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Inputs[Conditional Split Input]"
                   name="Excel Source Output"
                   startId="Package\Records Without Key Constraints\Dates Task\Dates Source.Outputs[Excel Source Output]" />
                 <path
@@ -2861,6 +3174,11 @@ where [refTable].[date_id] = ?</property>
                   endId="Package\Records Without Key Constraints\Dates Task\Dates Destination.Inputs[OLE DB Destination Input]"
                   name="Lookup No Match Output"
                   startId="Package\Records Without Key Constraints\Dates Task\Lookup Id.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\Records Without Key Constraints\Dates Task.Paths[Nulls]"
+                  endId="Package\Records Without Key Constraints\Dates Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="Nulls"
+                  startId="Package\Records Without Key Constraints\Dates Task\Conditional Split.Outputs[Nulls]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -4267,9 +4585,32 @@ where [refTable].[Id] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="136,42"
+          Id="Package\Key Constraints\Orders Task"
+          TopLeft="132,86" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Key Constraints\Store Inventory Task"
+          TopLeft="116,21" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="390,183"
+          Size="390,226"
+          Id="Package\Key Constraints"
+          TopLeft="77,374" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Purchased Items Task"
+          TopLeft="196,647" />
+        <NodeLayout
           Size="154,42"
           Id="Package\Records Without Key Constraints\Customers Task"
           TopLeft="200,16" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Records Without Key Constraints\Dates Task"
+          TopLeft="206,119" />
         <NodeLayout
           Size="148,42"
           Id="Package\Records Without Key Constraints\Locations Task"
@@ -4278,10 +4619,6 @@ where [refTable].[Id] = ?</property>
           Size="145,42"
           Id="Package\Records Without Key Constraints\Products Task"
           TopLeft="26,118" />
-        <NodeLayout
-          Size="131,42"
-          Id="Package\Records Without Key Constraints\Dates Task"
-          TopLeft="206,119" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -4289,21 +4626,6 @@ where [refTable].[Id] = ?</property>
           Size="410,274"
           Id="Package\Records Without Key Constraints"
           TopLeft="74,61" />
-        <NodeLayout
-          Size="178,42"
-          Id="Package\Key Constraints\Store Inventory Task"
-          TopLeft="116,21" />
-        <NodeLayout
-          Size="136,42"
-          Id="Package\Key Constraints\Orders Task"
-          TopLeft="132,86" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="390,183"
-          Size="390,226"
-          Id="Package\Key Constraints"
-          TopLeft="77,374" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="275.5,335">
@@ -4326,10 +4648,6 @@ where [refTable].[Id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="183,42"
-          Id="Package\Purchased Items Task"
-          TopLeft="196,647" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="272,600">
@@ -4367,6 +4685,336 @@ where [refTable].[Id] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Key Constraints\Orders Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Key Constraints\Orders Task\Orders Source"
+          TopLeft="116,45" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Key Constraints\Orders Task\Lookup"
+          TopLeft="115,166" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Key Constraints\Orders Task\OLE DB Destination"
+          TopLeft="96,295" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Key Constraints\Store Inventory Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Key Constraints\Store Inventory Task\Lookup Ids"
+          TopLeft="242,275" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Key Constraints\Store Inventory Task\Inventory Destination"
+          TopLeft="201,378" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Key Constraints\Store Inventory Task\Inventory Source"
+          TopLeft="223,38" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Key Constraints\Store Inventory Task\Data Conversion"
+          TopLeft="208,164" />
+        <EdgeLayout
+          Id="Package\Key Constraints\Store Inventory Task.Paths[Excel Source Output]"
+          TopLeft="303,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17,84"
+              Start="0,0"
+              End="-17,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38"
+                    Point2="0,42"
+                    Point3="-4,42" />
+                  <mssgle:LineSegment
+                    End="-13,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13,42"
+                    Point2="-17,42"
+                    Point3="-17,46" />
+                  <mssgle:LineSegment
+                    End="-17,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Key Constraints\Store Inventory Task.Paths[Data Conversion Output]"
+          TopLeft="286,206">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.5,69"
+              Start="0,0"
+              End="21.5,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="17.5,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.5,34.5"
+                    Point2="21.5,34.5"
+                    Point3="21.5,38.5" />
+                  <mssgle:LineSegment
+                    End="21.5,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Key Constraints\Store Inventory Task.Paths[Lookup No Match Output]"
+          TopLeft="307.5,317">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16,61"
+              Start="0,0"
+              End="-16,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="-4,30.5" />
+                  <mssgle:LineSegment
+                    End="-12,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12,30.5"
+                    Point2="-16,30.5"
+                    Point3="-16,34.5" />
+                  <mssgle:LineSegment
+                    End="-16,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-63.80638671875,35.5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Key Constraints\Store Inventory Task\Lookup Ids">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[StoreInventory]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Key Constraints\Store Inventory Task\Inventory Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Key Constraints\Store Inventory Task\Inventory Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Purchased Items Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Purchased Items Task\Purchased Source"
+          TopLeft="68,28" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Purchased Items Task\Lookup Product and Order Id"
+          TopLeft="69,130" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Purchased Items Task\Ordered Products Destination"
+          TopLeft="72,261" />
+        <EdgeLayout
+          Id="Package\Purchased Items Task.Paths[Lookup No Match Output]"
+          TopLeft="178.75,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,89"
+              Start="0,0"
+              End="0,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,34.9453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Purchased Items Task.Paths[Excel Source Output]"
+          TopLeft="149.5,70">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.5,60"
+              Start="0,0"
+              End="27.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="23.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.5,30"
+                    Point2="27.5,30"
+                    Point3="27.5,34" />
+                  <mssgle:LineSegment
+                    End="27.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Purchased Items Task\Purchased Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Purchased Items Task\Lookup Product and Order Id">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[OrderedProducts]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Purchased Items Task\Ordered Products Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Records Without Key Constraints\Customers Task">
     <LayoutInfo>
@@ -4573,6 +5221,201 @@ where [refTable].[Id] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Records Without Key Constraints\Dates Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Records Without Key Constraints\Dates Task\Dates Source"
+          TopLeft="55,0" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Records Without Key Constraints\Dates Task\Lookup Id"
+          TopLeft="84,164" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Records Without Key Constraints\Dates Task\Dates Destination"
+          TopLeft="53,284" />
+        <EdgeLayout
+          Id="Package\Records Without Key Constraints\Dates Task.Paths[Lookup No Match Output]"
+          TopLeft="147,206">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13,78"
+              Start="0,0"
+              End="-13,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35"
+                    Point2="0,39"
+                    Point3="-4,39" />
+                  <mssgle:LineSegment
+                    End="-9,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9,39"
+                    Point2="-13,39"
+                    Point3="-13,43" />
+                  <mssgle:LineSegment
+                    End="-13,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-62.30638671875,44,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Records Without Key Constraints\Dates Task\Conditional Split"
+          TopLeft="69,78" />
+        <EdgeLayout
+          Id="Package\Records Without Key Constraints\Dates Task.Paths[Excel Source Output]"
+          TopLeft="125.5,42">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,36"
+              Start="0,0"
+              End="21,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="17,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,18"
+                    Point2="21,18"
+                    Point3="21,22" />
+                  <mssgle:LineSegment
+                    End="21,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Records Without Key Constraints\Dates Task\Flat File Destination"
+          TopLeft="303,83" />
+        <EdgeLayout
+          Id="Package\Records Without Key Constraints\Dates Task.Paths[Conditional Split Default Output]"
+          TopLeft="146.75,120">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.61390625,12.4208984375,141.2278125,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Records Without Key Constraints\Dates Task.Paths[Nulls]"
+          TopLeft="224,101.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79,0"
+              Start="0,0"
+              End="71.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="71.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="24.567421875,5,22.36515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Records Without Key Constraints\Dates Task\Dates Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Records Without Key Constraints\Dates Task\Lookup Id">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dates]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Records Without Key Constraints\Dates Task\Dates Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -4988,471 +5831,6 @@ where [refTable].[Id] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Key Constraints\Store Inventory Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="131,42"
-          Id="Package\Key Constraints\Store Inventory Task\Lookup Ids"
-          TopLeft="242,275" />
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Key Constraints\Store Inventory Task\Inventory Destination"
-          TopLeft="201,378" />
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Key Constraints\Store Inventory Task\Inventory Source"
-          TopLeft="223,38" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Key Constraints\Store Inventory Task\Data Conversion"
-          TopLeft="208,164" />
-        <EdgeLayout
-          Id="Package\Key Constraints\Store Inventory Task.Paths[Excel Source Output]"
-          TopLeft="303,80">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-17,84"
-              Start="0,0"
-              End="-17,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38"
-                    Point2="0,42"
-                    Point3="-4,42" />
-                  <mssgle:LineSegment
-                    End="-13,42" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-13,42"
-                    Point2="-17,42"
-                    Point3="-17,46" />
-                  <mssgle:LineSegment
-                    End="-17,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Key Constraints\Store Inventory Task.Paths[Data Conversion Output]"
-          TopLeft="286,206">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="21.5,69"
-              Start="0,0"
-              End="21.5,61.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.5"
-                    Point2="0,34.5"
-                    Point3="4,34.5" />
-                  <mssgle:LineSegment
-                    End="17.5,34.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17.5,34.5"
-                    Point2="21.5,34.5"
-                    Point3="21.5,38.5" />
-                  <mssgle:LineSegment
-                    End="21.5,61.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Key Constraints\Store Inventory Task.Paths[Lookup No Match Output]"
-          TopLeft="307.5,317">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-16,61"
-              Start="0,0"
-              End="-16,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.5"
-                    Point2="0,30.5"
-                    Point3="-4,30.5" />
-                  <mssgle:LineSegment
-                    End="-12,30.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-12,30.5"
-                    Point2="-16,30.5"
-                    Point3="-16,34.5" />
-                  <mssgle:LineSegment
-                    End="-16,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-63.80638671875,35.5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Key Constraints\Store Inventory Task\Lookup Ids">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[StoreInventory]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Key Constraints\Store Inventory Task\Inventory Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Key Constraints\Store Inventory Task\Inventory Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Purchased Items Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Purchased Items Task\Purchased Source"
-          TopLeft="68,28" />
-        <NodeLayout
-          Size="216,42"
-          Id="Package\Purchased Items Task\Lookup Product and Order Id"
-          TopLeft="69,130" />
-        <EdgeLayout
-          Id="Package\Purchased Items Task.Paths[Excel Source Output]"
-          TopLeft="149.5,70">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="27.5,60"
-              Start="0,0"
-              End="27.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="23.5,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.5,30"
-                    Point2="27.5,30"
-                    Point3="27.5,34" />
-                  <mssgle:LineSegment
-                    End="27.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="217,42"
-          Id="Package\Purchased Items Task\Ordered Products Destination"
-          TopLeft="72,261" />
-        <EdgeLayout
-          Id="Package\Purchased Items Task.Paths[Lookup No Match Output]"
-          TopLeft="178.75,172">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,89"
-              Start="0,0"
-              End="0,81.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,81.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,34.9453125,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Purchased Items Task\Purchased Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Purchased Items Task\Lookup Product and Order Id">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[OrderedProducts]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Purchased Items Task\Ordered Products Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Records Without Key Constraints\Dates Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="141,42"
-          Id="Package\Records Without Key Constraints\Dates Task\Dates Source"
-          TopLeft="61,42" />
-        <NodeLayout
-          Size="162,42"
-          Id="Package\Records Without Key Constraints\Dates Task\Dates Destination"
-          TopLeft="53,283" />
-        <NodeLayout
-          Size="126,42"
-          Id="Package\Records Without Key Constraints\Dates Task\Lookup Id"
-          TopLeft="84,163" />
-        <EdgeLayout
-          Id="Package\Records Without Key Constraints\Dates Task.Paths[Excel Source Output]"
-          TopLeft="131.5,84">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="15.5,79"
-              Start="0,0"
-              End="15.5,71.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.5"
-                    Point2="0,39.5"
-                    Point3="4,39.5" />
-                  <mssgle:LineSegment
-                    End="11.5,39.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11.5,39.5"
-                    Point2="15.5,39.5"
-                    Point3="15.5,43.5" />
-                  <mssgle:LineSegment
-                    End="15.5,71.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-0.25,44.5,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Records Without Key Constraints\Dates Task.Paths[Lookup No Match Output]"
-          TopLeft="147,205">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-13,78"
-              Start="0,0"
-              End="-13,70.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35"
-                    Point2="0,39"
-                    Point3="-4,39" />
-                  <mssgle:LineSegment
-                    End="-9,39" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9,39"
-                    Point2="-13,39"
-                    Point3="-13,43" />
-                  <mssgle:LineSegment
-                    End="-13,70.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-62.30638671875,44,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Key Constraints\Orders Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="146,42"
-          Id="Package\Key Constraints\Orders Task\Orders Source"
-          TopLeft="116,45" />
-        <NodeLayout
-          Size="113,42"
-          Id="Package\Key Constraints\Orders Task\Lookup"
-          TopLeft="115,166" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Key Constraints\Orders Task\OLE DB Destination"
-          TopLeft="96,295" />
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Records Without Key Constraints\Dates Task\Dates Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Records Without Key Constraints\Dates Task\Dates Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Records Without Key Constraints\Dates Task\Lookup Id">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dates]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
