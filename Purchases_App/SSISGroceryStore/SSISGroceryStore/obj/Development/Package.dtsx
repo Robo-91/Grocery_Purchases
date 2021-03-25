@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{D2F9764B-C2A9-4D43-B499-06D669F50F13}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{CD74759C-E30D-44D8-8C3F-2CC74D97AE0A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1209,6 +1209,460 @@ where [refTable].[OrderId] = ?</property>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Key Constraints\Purchased Items Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{B280F1AF-ABA4-4702-A3DE-D64A751BC4BB}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Purchased Items Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup Product and Order Id"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[OrderedProducts]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[OrderedProducts]) [refTable]
+where [refTable].[ProductId_fk] = ? and [refTable].[OrderId_fk] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductId_fk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OrderId_fk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[ProductId]};#{Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[OrderId]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input].Columns[ProductId]"
+                          cachedDataType="i4"
+                          cachedName="ProductId"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[ProductId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ProductId_fk</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input].Columns[OrderId]"
+                          cachedDataType="i4"
+                          cachedName="OrderId"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[OrderId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">OrderId_fk</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Ordered Products Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[OrderedProducts]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                          cachedDataType="i4"
+                          cachedName="Id"
+                          externalMetadataColumnId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[Id]" />
+                        <inputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].Columns[ProductId]"
+                          cachedDataType="i4"
+                          cachedName="ProductId"
+                          externalMetadataColumnId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductId_fk]"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[ProductId]" />
+                        <inputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].Columns[OrderId]"
+                          cachedDataType="i4"
+                          cachedName="OrderId"
+                          externalMetadataColumnId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderId_fk]"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[OrderId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductId_fk]"
+                          dataType="i4"
+                          name="ProductId_fk" />
+                        <externalMetadataColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderId_fk]"
+                          dataType="i4"
+                          name="OrderId_fk" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Key Constraints\Purchased Items Task\Purchased Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Purchased Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Purchased_Items$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[Id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[Id]"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[Id]"
+                          name="Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[ProductId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[ProductId]"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[ProductId]"
+                          name="ProductId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[OrderId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[OrderId]"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[OrderId]"
+                          name="OrderId"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[Id]"
+                          dataType="r8"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[ProductId]"
+                          dataType="r8"
+                          name="ProductId" />
+                        <externalMetadataColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[OrderId]"
+                          dataType="r8"
+                          name="OrderId" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[Id]"
+                          dataType="r8"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[Id]"
+                          name="Id" />
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ProductId]"
+                          dataType="r8"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ProductId]"
+                          name="ProductId" />
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[OrderId]"
+                          dataType="r8"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[OrderId]"
+                          name="OrderId" />
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Key Constraints\Purchased Items Task.Paths[Excel Source Output]"
+                  endId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input]"
+                  name="Excel Source Output"
+                  startId="Package\Key Constraints\Purchased Items Task\Purchased Source.Outputs[Excel Source Output]" />
+                <path
+                  refId="Package\Key Constraints\Purchased Items Task.Paths[Lookup No Match Output]"
+                  endId="Package\Key Constraints\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup No Match Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Key Constraints\Store Inventory Task"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
@@ -1740,460 +2194,16 @@ where [refTable].[ProductId] = ? and [refTable].[LocationId] = ?</property>
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Purchased Items Task"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{B280F1AF-ABA4-4702-A3DE-D64A751BC4BB}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Purchased Items Task"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Purchased Items Task\Lookup Product and Order Id"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup Product and Order Id"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[OrderedProducts]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[OrderedProducts]) [refTable]
-where [refTable].[ProductId_fk] = ? and [refTable].[OrderId_fk] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductId_fk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OrderId_fk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[ProductId]};#{Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[OrderId]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Purchased Items Task\Lookup Product and Order Id.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input].Columns[ProductId]"
-                      cachedDataType="i4"
-                      cachedName="ProductId"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[ProductId]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">ProductId_fk</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input].Columns[OrderId]"
-                      cachedDataType="i4"
-                      cachedName="OrderId"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[OrderId]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">OrderId_fk</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Purchased Items Task\Ordered Products Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Ordered Products Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[OrderedProducts]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Purchased Items Task\Ordered Products Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].Columns[Id]"
-                      cachedDataType="i4"
-                      cachedName="Id"
-                      externalMetadataColumnId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[Id]" />
-                    <inputColumn
-                      refId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].Columns[ProductId]"
-                      cachedDataType="i4"
-                      cachedName="ProductId"
-                      externalMetadataColumnId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductId_fk]"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[ProductId]" />
-                    <inputColumn
-                      refId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].Columns[OrderId]"
-                      cachedDataType="i4"
-                      cachedName="OrderId"
-                      externalMetadataColumnId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderId_fk]"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[OrderId]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      dataType="i4"
-                      name="ID" />
-                    <externalMetadataColumn
-                      refId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductId_fk]"
-                      dataType="i4"
-                      name="ProductId_fk" />
-                    <externalMetadataColumn
-                      refId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderId_fk]"
-                      dataType="i4"
-                      name="OrderId_fk" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Purchased Items Task\Ordered Products Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Ordered Products Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Purchased Items Task\Ordered Products Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Ordered Products Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Purchased Items Task\Ordered Products Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Purchased Items Task\Purchased Source"
-              componentClassID="Microsoft.ExcelSource"
-              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Excel Source"
-              name="Purchased Source"
-              usesDispositions="true"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">Purchased_Items$</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mapping from parameters in the SQL command to variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Purchased Items Task\Purchased Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output]"
-                  name="Excel Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[Id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[Id]"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[Id]"
-                      name="Id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[ProductId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[ProductId]"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[ProductId]"
-                      name="ProductId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[OrderId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[OrderId]"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].Columns[OrderId]"
-                      name="OrderId"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[Id]"
-                      dataType="r8"
-                      name="Id" />
-                    <externalMetadataColumn
-                      refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[ProductId]"
-                      dataType="r8"
-                      name="ProductId" />
-                    <externalMetadataColumn
-                      refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output].ExternalColumns[OrderId]"
-                      dataType="r8"
-                      name="OrderId" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output]"
-                  isErrorOut="true"
-                  name="Excel Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[Id]"
-                      dataType="r8"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[Id]"
-                      name="Id" />
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ProductId]"
-                      dataType="r8"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ProductId]"
-                      name="ProductId" />
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[OrderId]"
-                      dataType="r8"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[OrderId]"
-                      name="OrderId" />
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Purchased Items Task.Paths[Excel Source Output]"
-              endId="Package\Purchased Items Task\Lookup Product and Order Id.Inputs[Lookup Input]"
-              name="Excel Source Output"
-              startId="Package\Purchased Items Task\Purchased Source.Outputs[Excel Source Output]" />
-            <path
-              refId="Package\Purchased Items Task.Paths[Lookup No Match Output]"
-              endId="Package\Purchased Items Task\Ordered Products Destination.Inputs[OLE DB Destination Input]"
-              name="Lookup No Match Output"
-              startId="Package\Purchased Items Task\Lookup Product and Order Id.Outputs[Lookup No Match Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Key Constraints.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B2A08C29-ECFB-47C7-91B0-08EF7E152D87}"
+          DTS:From="Package\Key Constraints\Orders Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Key Constraints\Purchased Items Task" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Records Without Key Constraints"
@@ -5132,6 +5142,23 @@ where [refTable].[Id] = ?</property>
         </DTS:Executable>
       </DTS:Executables>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Totals"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9F9E4722-4085-4B2F-A726-D87B192F78B0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Totals"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3E9D8C28-096C-4C42-AEF4-0590AC85BC04}"
+          SQLTask:SqlStatementSource="UPDATE       Orders&#xA;SET                Total = price&#xA;FROM            Orders JOIN&#xA;                         OrderedProducts ON Orders.OrderId = OrderedProducts.OrderId_fk JOIN&#xA;                         Products ON Products.Id = OrderedProducts.ProductId_fk&#xA;WHERE        OrderId = OrderId_fk;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -5145,11 +5172,11 @@ where [refTable].[Id] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{C7361666-E690-4816-A690-973A8EA576E8}"
+      DTS:DTSID="{7799481A-1905-4084-BC11-BD56375C107E}"
       DTS:From="Package\Key Constraints"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Purchased Items Task" />
+      DTS:To="Package\Update Totals" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -5171,11 +5198,37 @@ where [refTable].[Id] = ?</property>
           Size="178,42"
           Id="Package\Key Constraints\Store Inventory Task"
           TopLeft="20,24" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Key Constraints\Purchased Items Task"
+          TopLeft="193,87" />
+        <EdgeLayout
+          Id="Package\Key Constraints.PrecedenceConstraints[Constraint]"
+          TopLeft="286.25,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="425,136"
-          Size="425,180"
+          PanelSize="425,184"
+          Size="425,227"
           Id="Package\Key Constraints"
           TopLeft="77,374" />
         <NodeLayout
@@ -5236,23 +5289,35 @@ where [refTable].[Id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="183,42"
-          Id="Package\Purchased Items Task"
-          TopLeft="196,702" />
+          Size="144,42"
+          Id="Package\Update Totals"
+          TopLeft="245.5,663.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="288.5,554">
+          TopLeft="289.5,601">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,148"
+              EndConnector="28,62.5"
               Start="0,0"
-              End="0,140.5">
+              End="28,55">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,140.5" />
+                    End="0,27.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.25"
+                    Point2="0,31.25"
+                    Point3="4,31.25" />
+                  <mssgle:LineSegment
+                    End="24,31.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24,31.25"
+                    Point2="28,31.25"
+                    Point3="28,35.25" />
+                  <mssgle:LineSegment
+                    End="28,55" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5425,7 +5490,7 @@ where [refTable].[Id] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Key Constraints\Orders Task\Orders Source">
+    design-time-name="Package\Key Constraints\Orders Task\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5443,7 +5508,7 @@ where [refTable].[Id] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5453,7 +5518,7 @@ where [refTable].[Id] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5461,7 +5526,7 @@ where [refTable].[Id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Key Constraints\Orders Task\OLE DB Destination">
+    design-time-name="Package\Key Constraints\Orders Task\Orders Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5655,24 +5720,24 @@ where [refTable].[Id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Purchased Items Task">
+    design-time-name="Package\Key Constraints\Purchased Items Task">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="163,42"
-          Id="Package\Purchased Items Task\Purchased Source"
+          Id="Package\Key Constraints\Purchased Items Task\Purchased Source"
           TopLeft="106,22" />
         <NodeLayout
           Size="216,42"
-          Id="Package\Purchased Items Task\Lookup Product and Order Id"
+          Id="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id"
           TopLeft="69,130" />
         <NodeLayout
           Size="217,42"
-          Id="Package\Purchased Items Task\Ordered Products Destination"
+          Id="Package\Key Constraints\Purchased Items Task\Ordered Products Destination"
           TopLeft="72,261" />
         <EdgeLayout
-          Id="Package\Purchased Items Task.Paths[Lookup No Match Output]"
+          Id="Package\Key Constraints\Purchased Items Task.Paths[Lookup No Match Output]"
           TopLeft="178.75,172">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5696,7 +5761,7 @@ where [refTable].[Id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Purchased Items Task.Paths[Excel Source Output]"
+          Id="Package\Key Constraints\Purchased Items Task.Paths[Excel Source Output]"
           TopLeft="187.5,64">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5733,7 +5798,7 @@ where [refTable].[Id] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Purchased Items Task\Purchased Source">
+    design-time-name="Package\Key Constraints\Purchased Items Task\Purchased Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5746,7 +5811,7 @@ where [refTable].[Id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Purchased Items Task\Lookup Product and Order Id">
+    design-time-name="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -5769,7 +5834,7 @@ where [refTable].[Id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Purchased Items Task\Ordered Products Destination">
+    design-time-name="Package\Key Constraints\Purchased Items Task\Ordered Products Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
