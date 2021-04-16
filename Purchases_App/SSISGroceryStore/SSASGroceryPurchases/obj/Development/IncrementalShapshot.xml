@@ -54,7 +54,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>45qy//W3HFFLk2B3MMjy9r9IqSQ=4/14/2021 2:35:33 PM3/29/2021 4:00:14 PM3iO/rJNf21GbkpYgL0Xk/L51C8I=3/29/2021 4:00:14 PM3/29/2021 4:00:14 PM</TimeStamp>
+        <TimeStamp>NN0e9WTzxYYaxRc6wcIxdkhcpDo=4/16/2021 9:37:25 AM4/16/2021 9:37:25 AMMCzQc95FgQ7MBlpZ4LbmDsNriK8=4/16/2021 9:37:25 AM4/16/2021 9:37:25 AM</TimeStamp>
         <ID>
           <String>Retail App DB</String>
         </ID>
@@ -71,5 +71,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2021-04-14T19:36:31.43Z</LastDeployed>
+  <LastDeployed>2021-04-16T14:37:37.15Z</LastDeployed>
 </DeploymentSnapshot>
