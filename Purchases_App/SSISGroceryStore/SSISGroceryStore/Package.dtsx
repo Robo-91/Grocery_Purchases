@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="65"
-  DTS:VersionGUID="{2E61D82B-90DE-43B8-ADEA-096724CB6E53}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{4EF06C9E-47EC-423A-8032-6ADAF234C935}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2954,6 +2954,164 @@ where [refTable].[SSN] = ?</property>
                     </output>
                   </outputs>
                 </component>
+                <component
+                  refId="Package\Records Without Key Constraints\Customers Task\Update Records"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Update Records"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE tbl_Customers SET FirstName=?,LastName=?,StreetAddress=? WHERE SSN=?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Records Without Key Constraints\Customers Task\Update Records.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].Columns[Copy of FirstName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Copy of FirstName"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Records Without Key Constraints\Customers Task\Customer Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].Columns[Copy of LastName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Copy of LastName"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Records Without Key Constraints\Customers Task\Customer Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].Columns[Copy of Address]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Copy of Address"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\Records Without Key Constraints\Customers Task\Customer Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Address]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].Columns[Copy of SSN]"
+                          cachedDataType="i4"
+                          cachedName="Copy of SSN"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\Records Without Key Constraints\Customers Task\Customer Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SSN]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="i4"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Records Without Key Constraints\Customers Task\Update Records.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Records Without Key Constraints\Customers Task\Update Records.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Records Without Key Constraints\Customers Task\Update Records.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Records Without Key Constraints\Customers Task\Update Records.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Records Without Key Constraints\Customers Task\Update Records.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Records Without Key Constraints\Customers Task\Update Records.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
               </components>
               <paths>
                 <path
@@ -2971,6 +3129,11 @@ where [refTable].[SSN] = ?</property>
                   endId="Package\Records Without Key Constraints\Customers Task\Customer Data Conversion.Inputs[Data Conversion Input]"
                   name="Excel Source Output"
                   startId="Package\Records Without Key Constraints\Customers Task\Customer Excel.Outputs[Excel Source Output]" />
+                <path
+                  refId="Package\Records Without Key Constraints\Customers Task.Paths[Lookup Match Output]"
+                  endId="Package\Records Without Key Constraints\Customers Task\Update Records.Inputs[OLE DB Command Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Records Without Key Constraints\Customers Task\Customer SSN Lookup.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\Records Without Key Constraints\Customers Task.Paths[Lookup No Match Output]"
                   endId="Package\Records Without Key Constraints\Customers Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
@@ -6068,9 +6231,7 @@ where [refTable].[Id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6104,9 +6265,7 @@ where [refTable].[Id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6142,6 +6301,46 @@ where [refTable].[Id] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-29.58638671875,-17.43359375,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Records Without Key Constraints\Customers Task\Update Records"
+          TopLeft="335,367" />
+        <EdgeLayout
+          Id="Package\Records Without Key Constraints\Customers Task.Paths[Lookup Match Output]"
+          TopLeft="232.333333333333,297">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="179.166666666667,70"
+              Start="0,0"
+              End="179.166666666667,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3620689655172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.3620689655172"
+                    Point2="0,28.3620689655172"
+                    Point3="4,28.3620689655172" />
+                  <mssgle:LineSegment
+                    End="175.166666666667,28.3620689655172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="175.166666666667,28.3620689655172"
+                    Point2="179.166666666667,28.3620689655172"
+                    Point3="179.166666666667,32.3620689655172" />
+                  <mssgle:LineSegment
+                    End="179.166666666667,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="41.3919466145833,33.3620689655172,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
