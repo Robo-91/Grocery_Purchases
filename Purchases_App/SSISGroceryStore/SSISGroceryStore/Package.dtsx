@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{CD74759C-E30D-44D8-8C3F-2CC74D97AE0A}">
+  DTS:VersionBuild="65"
+  DTS:VersionGUID="{2E61D82B-90DE-43B8-ADEA-096724CB6E53}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4296,11 +4296,11 @@ where [refTable].[StoreId] = ?</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination"
+                  refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert)"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="tbl_Locations Destination"
+                  name="tbl_Locations Destination (Insert)"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -4353,7 +4353,7 @@ where [refTable].[StoreId] = ?</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Connections[OleDbConnection]"
+                      refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Connections[OleDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
                       connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
                       description="The OLE DB runtime connection used to access the database."
@@ -4361,49 +4361,49 @@ where [refTable].[StoreId] = ?</property>
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input]"
+                      refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input].Columns[Copy of State]"
+                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input].Columns[Copy of State]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="255"
                           cachedName="Copy of State"
-                          externalMetadataColumnId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreState]"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input].ExternalColumns[StoreState]"
                           lineageId="Package\Records Without Key Constraints\Locations Task\Excel Conversion.Outputs[Data Conversion Output].Columns[Copy of State]" />
                         <inputColumn
-                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input].Columns[Copy of StoreName]"
+                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input].Columns[Copy of StoreName]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="255"
                           cachedName="Copy of StoreName"
-                          externalMetadataColumnId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreName]"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input].ExternalColumns[StoreName]"
                           lineageId="Package\Records Without Key Constraints\Locations Task\Excel Conversion.Outputs[Data Conversion Output].Columns[Copy of StoreName]" />
                         <inputColumn
-                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input].Columns[Copy of StoreId]"
+                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input].Columns[Copy of StoreId]"
                           cachedDataType="i4"
                           cachedName="Copy of StoreId"
-                          externalMetadataColumnId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreId]"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input].ExternalColumns[StoreId]"
                           lineageId="Package\Records Without Key Constraints\Locations Task\Excel Conversion.Outputs[Data Conversion Output].Columns[Copy of StoreId]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreId]"
+                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input].ExternalColumns[StoreId]"
                           dataType="i4"
                           name="StoreId" />
                         <externalMetadataColumn
-                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreName]"
+                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input].ExternalColumns[StoreName]"
                           codePage="1252"
                           dataType="str"
                           length="20"
                           name="StoreName" />
                         <externalMetadataColumn
-                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreState]"
+                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input].ExternalColumns[StoreState]"
                           codePage="1252"
                           dataType="str"
                           length="20"
@@ -4413,22 +4413,159 @@ where [refTable].[StoreId] = ?</property>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Records Without Key Constraints\Locations Task\Update Records"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Update Records"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE tbl_Locations SET StoreName=?, StoreState=? WHERE StoreId=?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Records Without Key Constraints\Locations Task\Update Records.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9TKNNVCM\LEARNINGSERVER.Retail_App_DB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input].Columns[Copy of StoreName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Copy of StoreName"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Records Without Key Constraints\Locations Task\Excel Conversion.Outputs[Data Conversion Output].Columns[Copy of StoreName]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input].Columns[Copy of State]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Copy of State"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Records Without Key Constraints\Locations Task\Excel Conversion.Outputs[Data Conversion Output].Columns[Copy of State]" />
+                        <inputColumn
+                          refId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input].Columns[Copy of StoreId]"
+                          cachedDataType="i4"
+                          cachedName="Copy of StoreId"
+                          externalMetadataColumnId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\Records Without Key Constraints\Locations Task\Excel Conversion.Outputs[Data Conversion Output].Columns[Copy of StoreId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="i4"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Records Without Key Constraints\Locations Task\Update Records.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Records Without Key Constraints\Locations Task\Update Records.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Records Without Key Constraints\Locations Task\Update Records.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Records Without Key Constraints\Locations Task\Update Records.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Records Without Key Constraints\Locations Task\Update Records.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Records Without Key Constraints\Locations Task\Update Records.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -4454,8 +4591,13 @@ where [refTable].[StoreId] = ?</property>
                   name="Excel Source Output"
                   startId="Package\Records Without Key Constraints\Locations Task\Stores Excel.Outputs[Excel Source Output]" />
                 <path
+                  refId="Package\Records Without Key Constraints\Locations Task.Paths[Lookup Match Output]"
+                  endId="Package\Records Without Key Constraints\Locations Task\Update Records.Inputs[OLE DB Command Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Records Without Key Constraints\Locations Task\ID Lookup.Outputs[Lookup Match Output]" />
+                <path
                   refId="Package\Records Without Key Constraints\Locations Task.Paths[Lookup No Match Output]"
-                  endId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination.Inputs[OLE DB Destination Input]"
+                  endId="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert).Inputs[OLE DB Destination Input]"
                   name="Lookup No Match Output"
                   startId="Package\Records Without Key Constraints\Locations Task\ID Lookup.Outputs[Lookup No Match Output]" />
               </paths>
@@ -5195,13 +5337,13 @@ where [refTable].[Id] = ?</property>
           Id="Package\Key Constraints\Orders Task"
           TopLeft="220,22" />
         <NodeLayout
-          Size="178,42"
-          Id="Package\Key Constraints\Store Inventory Task"
-          TopLeft="20,24" />
-        <NodeLayout
           Size="183,42"
           Id="Package\Key Constraints\Purchased Items Task"
           TopLeft="193,87" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Key Constraints\Store Inventory Task"
+          TopLeft="20,24" />
         <EdgeLayout
           Id="Package\Key Constraints.PrecedenceConstraints[Constraint]"
           TopLeft="286.25,64">
@@ -5254,6 +5396,10 @@ where [refTable].[Id] = ?</property>
           Size="410,274"
           Id="Package\Records Without Key Constraints"
           TopLeft="74,61" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Update Totals"
+          TopLeft="245.5,663.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="279,335">
@@ -5288,10 +5434,6 @@ where [refTable].[Id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Update Totals"
-          TopLeft="245.5,663.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="289.5,601">
@@ -5539,6 +5681,133 @@ where [refTable].[Id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Key Constraints\Purchased Items Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Key Constraints\Purchased Items Task\Purchased Source"
+          TopLeft="106,22" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id"
+          TopLeft="69,130" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Key Constraints\Purchased Items Task\Ordered Products Destination"
+          TopLeft="72,261" />
+        <EdgeLayout
+          Id="Package\Key Constraints\Purchased Items Task.Paths[Lookup No Match Output]"
+          TopLeft="178.75,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,89"
+              Start="0,0"
+              End="0,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,34.9453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Key Constraints\Purchased Items Task.Paths[Excel Source Output]"
+          TopLeft="187.5,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.5,66"
+              Start="0,0"
+              End="-10.5,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="-4,33" />
+                  <mssgle:LineSegment
+                    End="-6.5,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.5,33"
+                    Point2="-10.5,33"
+                    Point3="-10.5,37" />
+                  <mssgle:LineSegment
+                    End="-10.5,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Key Constraints\Purchased Items Task\Purchased Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[OrderedProducts]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Key Constraints\Purchased Items Task\Ordered Products Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Key Constraints\Store Inventory Task">
     <LayoutInfo>
       <GraphLayout
@@ -5708,133 +5977,6 @@ where [refTable].[Id] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Key Constraints\Store Inventory Task\Inventory Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Key Constraints\Purchased Items Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Key Constraints\Purchased Items Task\Purchased Source"
-          TopLeft="106,22" />
-        <NodeLayout
-          Size="216,42"
-          Id="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id"
-          TopLeft="69,130" />
-        <NodeLayout
-          Size="217,42"
-          Id="Package\Key Constraints\Purchased Items Task\Ordered Products Destination"
-          TopLeft="72,261" />
-        <EdgeLayout
-          Id="Package\Key Constraints\Purchased Items Task.Paths[Lookup No Match Output]"
-          TopLeft="178.75,172">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,89"
-              Start="0,0"
-              End="0,81.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,81.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,34.9453125,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Key Constraints\Purchased Items Task.Paths[Excel Source Output]"
-          TopLeft="187.5,64">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-10.5,66"
-              Start="0,0"
-              End="-10.5,58.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29"
-                    Point2="0,33"
-                    Point3="-4,33" />
-                  <mssgle:LineSegment
-                    End="-6.5,33" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-6.5,33"
-                    Point2="-10.5,33"
-                    Point3="-10.5,37" />
-                  <mssgle:LineSegment
-                    End="-10.5,58.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Key Constraints\Purchased Items Task\Purchased Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Key Constraints\Purchased Items Task\Lookup Product and Order Id">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[OrderedProducts]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Key Constraints\Purchased Items Task\Ordered Products Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6258,13 +6400,13 @@ where [refTable].[Id] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="197,42"
-          Id="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination"
+          Size="236,42"
+          Id="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert)"
           TopLeft="87,367" />
         <NodeLayout
           Size="159,42"
           Id="Package\Records Without Key Constraints\Locations Task\Error Destination"
-          TopLeft="350,197" />
+          TopLeft="314,151" />
         <NodeLayout
           Size="136,42"
           Id="Package\Records Without Key Constraints\Locations Task\Stores Excel"
@@ -6283,33 +6425,21 @@ where [refTable].[Id] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="86,46"
+              EndConnector="50,0"
               Start="0,0"
-              End="78.5,46">
+              End="42.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="39,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="39,0"
-                    Point2="43,0"
-                    Point3="43,4" />
-                  <mssgle:LineSegment
-                    End="43,42" />
-                  <mssgle:CubicBezierSegment
-                    Point1="43,42"
-                    Point2="43,46"
-                    Point3="47,46" />
-                  <mssgle:LineSegment
-                    End="78.5,46" />
+                    End="42.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-23.08638671875,-17.43359375,132.1727734375,11.43359375"
+              BoundingBox="-44.83638671875,5,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6319,9 +6449,9 @@ where [refTable].[Id] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.5,56"
+              EndConnector="10,56"
               Start="0,0"
-              End="-9.5,48.5">
+              End="10,48.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -6330,22 +6460,22 @@ where [refTable].[Id] = ?</property>
                   <mssgle:CubicBezierSegment
                     Point1="0,24"
                     Point2="0,28"
-                    Point3="-4,28" />
+                    Point3="4,28" />
                   <mssgle:LineSegment
-                    End="-5.5,28" />
+                    End="6,28" />
                   <mssgle:CubicBezierSegment
-                    Point1="-5.5,28"
-                    Point2="-9.5,28"
-                    Point3="-9.5,32" />
+                    Point1="6,28"
+                    Point2="10,28"
+                    Point3="10,32" />
                   <mssgle:LineSegment
-                    End="-9.5,48.5" />
+                    End="10,48.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-60.55638671875,33,111.6127734375,11.609375"
+              BoundingBox="-50.80638671875,33,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6368,9 +6498,7 @@ where [refTable].[Id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6404,8 +6532,46 @@ where [refTable].[Id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Records Without Key Constraints\Locations Task\Update Records"
+          TopLeft="349,361" />
+        <EdgeLayout
+          Id="Package\Records Without Key Constraints\Locations Task.Paths[Lookup Match Output]"
+          TopLeft="215,311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="210.5,50"
+              Start="0,0"
+              End="210.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.3703703703704" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.3703703703704"
+                    Point2="0,20.3703703703704"
+                    Point3="4,20.3703703703704" />
+                  <mssgle:LineSegment
+                    End="206.5,20.3703703703704" />
+                  <mssgle:CubicBezierSegment
+                    Point1="206.5,20.3703703703704"
+                    Point2="210.5,20.3703703703704"
+                    Point3="210.5,24.3703703703704" />
+                  <mssgle:LineSegment
+                    End="210.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="57.05861328125,25.3703703703704,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6413,7 +6579,7 @@ where [refTable].[Id] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination">
+    design-time-name="Package\Records Without Key Constraints\Locations Task\tbl_Locations Destination (Insert)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
